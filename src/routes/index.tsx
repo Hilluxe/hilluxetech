@@ -51,7 +51,7 @@ function Home() {
         <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4">
           <a href="#top" className="flex items-center gap-3">
             <span className="grid h-10 w-10 place-items-center rounded-full border border-border bg-card font-display text-xl text-primary">
-              K
+              H
             </span>
             <span className="leading-tight">
               <span className="block font-display text-lg">Hilluxe Tech</span>
