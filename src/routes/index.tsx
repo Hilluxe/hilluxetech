@@ -15,7 +15,7 @@ const NAV = [
   { id: "faq", label: "FAQ" },
 ];
 
-const WHATSAPP = "https://wa.me/+2348068955746?text=Hi%20Kayode%2C%20I%27d%20like%20to%20scale%20my%20Shopify%20store.";
+const WHATSAPP = "https://wa.me/+2348068955746?text=Hi%20Hilluxe%20Tech%2C%20I%27d%20like%20to%20scale%20my%20Shopify%20store.";
 
 function Home() {
   const [scrolled, setScrolled] = useState(false);
@@ -51,10 +51,10 @@ function Home() {
         <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4">
           <a href="#top" className="flex items-center gap-3">
             <span className="grid h-10 w-10 place-items-center rounded-full border border-border bg-card font-display text-xl text-primary">
-              K
+              H
             </span>
             <span className="leading-tight">
-              <span className="block font-display text-lg">Kayode Adeigbe</span>
+              <span className="block font-display text-lg">Hilluxe Tech</span>
               <span className="block text-[10px] tracking-[0.2em] text-muted-foreground">
                 SHOPIFY GROWTH
               </span>
@@ -249,13 +249,13 @@ function Hero() {
             <div className="flex items-center gap-4">
               <img
                 src={profileImg}
-                alt="Kayode Adeigbe — Shopify Growth Expert"
+                alt="Hilluxe Tech — Shopify Growth Expert"
                 width={96}
                 height={96}
                 className="h-20 w-20 rounded-2xl object-cover ring-1 ring-border"
               />
               <div>
-                <p className="font-display text-2xl">Kayode Adeigbe</p>
+                <p className="font-display text-2xl">Hilluxe Tech</p>
                 <p className="text-sm text-primary">Shopify Growth Expert</p>
               </div>
             </div>
@@ -319,7 +319,7 @@ function About() {
         <div className="relative">
           <img
             src={profileImg}
-            alt="Kayode Adeigbe — Shopify Expert"
+            alt="Hilluxe Tech — Shopify Expert"
             width={720}
             height={900}
             loading="lazy"
@@ -642,7 +642,7 @@ function Reviews() {
   const reviews = [
     {
       quote:
-        "Kayode transformed my struggling store into a profit machine. Within 3 months, revenue increased by 250%. His marketing strategies are simply incredible.",
+        "Hilluxe Tech transformed my struggling store into a profit machine. Within 3 months, revenue increased by 250%. His marketing strategies are simply incredible.",
       name: "Sarah Johnson",
       role: "Fashion E-commerce Owner",
     },
@@ -660,7 +660,7 @@ function Reviews() {
     },
     {
       quote:
-        "The Klaviyo automation Kayode set up recovers so many abandoned carts. We now have consistent daily sales.",
+        "The Klaviyo automation Hilluxe Tech set up recovers so many abandoned carts. We now have consistent daily sales.",
       name: "David Thompson",
       role: "Home Decor Store Owner",
     },
@@ -868,7 +868,7 @@ function Footer() {
     <footer className="border-t border-border bg-card">
       <div className="mx-auto grid max-w-7xl gap-10 px-5 py-16 md:grid-cols-4">
         <div className="md:col-span-2">
-          <p className="font-display text-3xl">Kayode Adeigbe</p>
+          <p className="font-display text-3xl">Hilluxe Tech</p>
           <p className="mt-2 text-sm text-muted-foreground">
             Shopify Growth Partner · Est. 2019
           </p>
@@ -901,7 +901,7 @@ function Footer() {
       </div>
       <div className="border-t border-border">
         <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-3 px-5 py-5 text-xs text-muted-foreground">
-          <p>© {new Date().getFullYear()} Kayode Adeigbe. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} Hilluxe Tech. All rights reserved.</p>
           <p>Built with care · Shopify Partner · Google Ads Certified</p>
         </div>
       </div>
