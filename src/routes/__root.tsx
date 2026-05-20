@@ -72,10 +72,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Kayode Adeigbe — Shopify Growth Partner" },
+      { title: "Hilluxe Tech — Shopify Growth Partner" },
       { name: "description", content: "Triple your Shopify revenue in 60 days with high-converting funnels, performance ads, and Klaviyo email automation." },
-      { name: "author", content: "Kayode Adeigbe" },
-      { property: "og:title", content: "Kayode Adeigbe — Shopify Growth Partner" },
+      { name: "author", content: "Hilluxe Tech" },
+      { property: "og:title", content: "Hilluxe Tech — Shopify Growth Partner" },
       { property: "og:description", content: "Scale your Shopify store with proven funnels, paid ads, and retention systems." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
