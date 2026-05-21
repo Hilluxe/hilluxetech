@@ -15,7 +15,9 @@ const NAV = [
   { id: "faq", label: "FAQ" },
 ];
 
-const WHATSAPP = "https://wa.me/+2348068955746?text=Hi%20Hilluxe%20Tech%2C%20I%27d%20like%20to%20scale%20my%20Shopify%20store.";
+const WHATSAPP = "https://wa.link/n0x44i";
+const FACEBOOK = "https://www.facebook.com/profile.php?id=61583751440599";
+const INSTAGRAM = "https://www.instagram.com/hilluxetech?igsh=N3dlZWMyZng2bGVl";
 
 function Home() {
   const [scrolled, setScrolled] = useState(false);
@@ -117,7 +119,7 @@ function Home() {
         <Process />
         <Results />
         <Services />
-        <CaseStudy />
+        
         <Reviews />
         <Audit />
         <FAQ />
@@ -209,13 +211,13 @@ function Hero() {
                 <span className="transition group-hover:translate-x-0.5">→</span>
               </a>
               <a
-                href="#case-study"
+                href="#results"
                 className="inline-flex items-center gap-3 text-sm font-medium text-foreground"
               >
                 <span className="grid h-11 w-11 place-items-center rounded-full border border-border bg-card transition hover:bg-secondary">
-                  ▶
+                  →
                 </span>
-                Watch the case study
+                See real results
               </a>
             </div>
 
@@ -225,10 +227,9 @@ function Hero() {
               </p>
               <div className="flex flex-wrap gap-2">
                 {[
-                  { label: "Fiverr", href: "https://fiverr.com/adeigbekayode" },
-                  { label: "Upwork", href: "https://www.upwork.com/freelancers/~010eefe87696f81b1c" },
+                  { label: "Instagram", href: INSTAGRAM },
+                  { label: "Facebook", href: FACEBOOK },
                   { label: "WhatsApp", href: WHATSAPP },
-                  { label: "Facebook", href: "https://www.facebook.com/share/174SsYJpU1/?mibextid=wwXIfr" },
                 ].map((p) => (
                   <a
                     key={p.label}
@@ -571,72 +572,6 @@ function Services() {
   );
 }
 
-/* ────────────────────────────  CASE STUDY  ────────────────────────── */
-function CaseStudy() {
-  return (
-    <section
-      id="case-study"
-      className="relative mx-auto max-w-7xl px-5 py-24 md:py-32"
-    >
-      <p className="mb-6 text-xs tracking-[0.25em] text-muted-foreground">CASE STUDY · WATCH</p>
-      <div className="grid gap-12 lg:grid-cols-[1.2fr_1fr] lg:items-center">
-        <div>
-          <h2 className="font-display text-4xl leading-tight md:text-6xl">
-            The blueprint behind{" "}
-            <span className="italic text-primary">3× revenue in 60 days.</span>
-          </h2>
-          <p className="mt-6 max-w-xl text-muted-foreground">
-            A behind-the-scenes look at the exact funnel, ad creative, and email automation
-            stack I deploy for every Shopify brand I scale.
-          </p>
-
-          <div className="mt-10 grid grid-cols-2 gap-6 sm:grid-cols-4">
-            {[
-              ["3×", "Avg. revenue lift"],
-              ["60", "Days to results"],
-              ["200+", "Stores transformed"],
-              ["$15M+", "Generated for clients"],
-            ].map(([v, l]) => (
-              <div key={l}>
-                <p className="font-display text-4xl text-primary">{v}</p>
-                <p className="mt-1 text-xs text-muted-foreground">{l}</p>
-              </div>
-            ))}
-          </div>
-
-          <div className="mt-10 flex flex-wrap gap-3">
-            <a
-              href={WHATSAPP}
-              target="_blank"
-              rel="noreferrer"
-              className="rounded-full bg-foreground px-6 py-3 text-sm text-background"
-            >
-              Book a Free Strategy Call
-            </a>
-            <a
-              href="#results"
-              className="rounded-full border border-border px-6 py-3 text-sm"
-            >
-              See more results →
-            </a>
-          </div>
-        </div>
-
-        <div className="relative aspect-video overflow-hidden rounded-3xl border border-border bg-foreground">
-          <iframe
-            className="absolute inset-0 h-full w-full"
-            src="https://www.youtube.com/embed/NMimC4fkOlU"
-            title="Case study"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-            loading="lazy"
-          />
-        </div>
-      </div>
-    </section>
-  );
-}
-
 /* ─────────────────────────────  REVIEWS  ──────────────────────────── */
 function Reviews() {
   const reviews = [
@@ -892,10 +827,9 @@ function Footer() {
         <div>
           <p className="mb-3 text-xs tracking-[0.2em] text-muted-foreground">CONNECT</p>
           <ul className="space-y-2 text-sm">
-            <li><a href="https://fiverr.com/adeigbekayode" target="_blank" rel="noreferrer" className="hover:text-primary">Fiverr</a></li>
-            <li><a href="https://www.upwork.com/freelancers/~010eefe87696f81b1c" target="_blank" rel="noreferrer" className="hover:text-primary">Upwork</a></li>
+            <li><a href={INSTAGRAM} target="_blank" rel="noreferrer" className="hover:text-primary">Instagram</a></li>
+            <li><a href={FACEBOOK} target="_blank" rel="noreferrer" className="hover:text-primary">Facebook</a></li>
             <li><a href={WHATSAPP} target="_blank" rel="noreferrer" className="hover:text-primary">WhatsApp</a></li>
-            <li><a href="https://calendly.com/imamadekola" target="_blank" rel="noreferrer" className="hover:text-primary">Calendly</a></li>
           </ul>
         </div>
       </div>
