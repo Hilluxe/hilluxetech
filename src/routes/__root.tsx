@@ -72,6 +72,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
+      { name: "google-site-verification", content: "W_c1TpJigfsGeYVW2s5kkf6_q7w4cCyJO-htPhEimyo" },
       { title: "Hilluxe Tech — Shopify Growth Partner" },
       { name: "description", content: "Triple your Shopify revenue in 60 days with high-converting funnels, performance ads, and Klaviyo email automation." },
       { name: "author", content: "Hilluxe Tech" },
