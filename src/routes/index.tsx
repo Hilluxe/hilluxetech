@@ -724,7 +724,19 @@ function Audit() {
         <form
           onSubmit={(e) => {
             e.preventDefault();
-            alert("Thanks! I'll review and reply within 48 hours.");
+            const fd = new FormData(e.currentTarget);
+            const msg =
+              `Hi Hillux, I'd like a free store audit.\n\n` +
+              `Store name: ${fd.get("store_name") || ""}\n` +
+              `Store URL: ${fd.get("store_url") || ""}\n` +
+              `Email: ${fd.get("email") || ""}\n` +
+              `Monthly revenue: ${fd.get("revenue") || "—"}\n` +
+              `Main challenge: ${fd.get("challenge") || "—"}`;
+            window.open(
+              `https://wa.link/n0x44i?text=${encodeURIComponent(msg)}`,
+              "_blank",
+              "noopener,noreferrer",
+            );
           }}
           className="rounded-3xl border border-background/15 bg-background/5 p-8 backdrop-blur-md"
         >
@@ -752,6 +764,7 @@ function Audit() {
               MAIN CHALLENGE (OPTIONAL)
             </span>
             <textarea
+              name="challenge"
               rows={3}
               className="w-full rounded-xl border border-background/15 bg-background/10 px-4 py-3 text-sm text-background placeholder-background/40 outline-none ring-primary/40 transition focus:ring-2"
             />
@@ -760,10 +773,10 @@ function Audit() {
             type="submit"
             className="w-full rounded-full bg-primary px-6 py-3.5 text-sm font-medium text-primary-foreground transition hover:opacity-90"
           >
-            Get my free audit →
+            Send on WhatsApp →
           </button>
           <p className="mt-3 text-center text-xs text-background/50">
-            No credit card · Delivered within 48 hours · 100% confidential
+            Sent directly to WhatsApp · Reply within 48 hours · 100% confidential
           </p>
         </form>
       </div>
