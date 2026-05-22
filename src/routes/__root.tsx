@@ -87,10 +87,30 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     ],
     links: [
       { rel: "stylesheet", href: appCss },
+      { rel: "canonical", href: "https://hilluxetech.lovable.app/" },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap" },
     ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          name: "Hilluxe Tech",
+          url: "https://hilluxetech.lovable.app/",
+          description:
+            "Shopify growth partner — high-converting funnels, performance ads, and Klaviyo email automation.",
+          sameAs: [
+            "https://www.facebook.com/profile.php?id=61583751440599",
+            "https://www.instagram.com/hilluxetech",
+            "https://wa.link/n0x44i",
+          ],
+        }),
+      },
+    ],
+
   }),
   shellComponent: RootShell,
   component: RootComponent,
