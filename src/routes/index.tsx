@@ -773,16 +773,8 @@ function Audit() {
 
 /* ─────────────────────────────  FAQ  ──────────────────────────────── */
 function FAQ() {
-  const faqs = [
-    ["How quickly can you start working on my store?", "Most engagements start within 3–5 business days after our discovery call and onboarding."],
-    ["What makes your approach different?", "I combine conversion engineering, paid media, and retention into one connected system — instead of selling them as silos."],
-    ["Do you work with new stores or only established ones?", "Both. I have foundation-stage packages for new stores and growth retainers for established brands doing $10K+/mo."],
-    ["What's your typical timeline for seeing results?", "Most clients see meaningful lift within 30–60 days; compounding results show by month 3."],
-    ["Do you offer ongoing support or one-time projects?", "Both options are available. Most founders start with a project and upgrade to a monthly retainer."],
-    ["What platforms and tools do you specialize in?", "Shopify, Klaviyo, Meta Ads, Google Ads, TikTok Ads, GA4, and the standard CRO toolkit."],
-    ["How do you communicate during projects?", "Weekly async updates + a bi-weekly call. WhatsApp & Slack for quick decisions."],
-    ["What information do you need to get started?", "Store access, current ad accounts, analytics, and a quick brief on goals & constraints."],
-  ];
+  const faqs = FAQ_ITEMS;
+
   return (
     <section id="faq" className="mx-auto max-w-5xl px-5 py-24 md:py-32">
       <p className="mb-6 text-xs tracking-[0.25em] text-muted-foreground">/ 06 — FAQ</p>
