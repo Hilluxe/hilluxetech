@@ -436,12 +436,12 @@ function Process() {
   return (
     <section id="process" className="bg-foreground py-24 text-background md:py-32">
       <div className="mx-auto max-w-7xl px-5">
-        <p className="mb-6 text-xs tracking-[0.25em] text-background/60">/ 02 — PROCESS</p>
+        <p className="mb-6 text-xs tracking-[0.25em] text-background/80">/ 02 — PROCESS</p>
         <h2 className="max-w-3xl font-display text-4xl leading-tight md:text-6xl">
           A three-phase system that{" "}
           <span className="italic text-primary">just works.</span>
         </h2>
-        <p className="mt-6 max-w-xl text-background/70">
+        <p className="mt-6 max-w-xl text-background/85">
           Tested across 200+ Shopify brands. Repeatable. Measurable. Profitable.
         </p>
 
@@ -452,9 +452,9 @@ function Process() {
               className="group relative overflow-hidden rounded-3xl border border-background/10 bg-background/5 p-8 backdrop-blur transition hover:bg-background/10"
             >
               <p className="font-display text-6xl text-primary">{s.n}</p>
-              <p className="mt-6 text-xs tracking-[0.25em] text-background/60">{s.tag}</p>
+              <p className="mt-6 text-xs tracking-[0.25em] text-background/80">{s.tag}</p>
               <h3 className="mt-2 font-display text-3xl">{s.title}</h3>
-              <p className="mt-4 text-sm leading-relaxed text-background/70">{s.body}</p>
+              <p className="mt-4 text-sm leading-relaxed text-background/85">{s.body}</p>
             </div>
           ))}
         </div>
@@ -694,11 +694,11 @@ function Audit() {
       <div className="absolute inset-0 grid-paper opacity-[0.08]" aria-hidden />
       <div className="relative mx-auto grid max-w-7xl gap-12 px-5 lg:grid-cols-2 lg:items-center">
         <div>
-          <p className="mb-6 text-xs tracking-[0.25em] text-background/60">FREE STORE AUDIT</p>
+          <p className="mb-6 text-xs tracking-[0.25em] text-background/80">FREE STORE AUDIT</p>
           <h2 className="font-display text-4xl leading-tight md:text-6xl">
             Get your <span className="italic text-primary">free store audit.</span>
           </h2>
-          <p className="mt-6 max-w-lg text-background/70">
+          <p className="mt-6 max-w-lg text-background/85">
             I'll personally analyze your store and send a detailed audit report within 48
             hours — completely free.
           </p>
@@ -714,7 +714,7 @@ function Audit() {
                 </span>
                 <div>
                   <p className="font-medium">{t}</p>
-                  <p className="text-sm text-background/60">{d}</p>
+                  <p className="text-sm text-background/80">{d}</p>
                 </div>
               </li>
             ))}
@@ -736,7 +736,7 @@ function Audit() {
             ["Monthly revenue (optional)", "revenue", "text", false],
           ].map(([label, name, type, req]) => (
             <label key={name as string} className="mb-4 block">
-              <span className="mb-1.5 block text-xs tracking-[0.15em] text-background/60">
+              <span className="mb-1.5 block text-xs tracking-[0.15em] text-background/80">
                 {(label as string).toUpperCase()} {req ? "*" : ""}
               </span>
               <input
@@ -748,7 +748,7 @@ function Audit() {
             </label>
           ))}
           <label className="mb-6 block">
-            <span className="mb-1.5 block text-xs tracking-[0.15em] text-background/60">
+            <span className="mb-1.5 block text-xs tracking-[0.15em] text-background/80">
               MAIN CHALLENGE (OPTIONAL)
             </span>
             <textarea
