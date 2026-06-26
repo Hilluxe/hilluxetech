@@ -634,8 +634,9 @@ function Services() {
     ["Google & Meta Ads", "Profitable PPC — Google Search, Shopping, Meta retargeting, and creative testing.", "$250"],
     ["Klaviyo Email Automation", "Automated flows that recover carts, win back lapsed customers, and drive repeat revenue.", "$100"],
     ["Product Research", "Find winning products with data-backed research — demand, margin, and competitive analysis.", "$80"],
-    ["Dropshipping Setup", "Done-for-you store setup, supplier vetting, and fulfillment workflows.", "$300"],
+    ["End-to-End Store Development & Architecture", "Full-stack Shopify store building, custom architecture, supplier vetting, and seamless international logistics setups.", "$450"],
     ["Analytics & CRO", "Heatmaps, A/B tests, and funnel diagnostics to compound your conversion rate.", "$180"],
+    ["Google Merchant Center & Ad Account Recovery", "Is your GMC suspended or are your Google Ads restricted? I audit and fix policy violations like Misrepresentation and Unacceptable Business Practices to get your products back online safely.", "$190"],
     ["SEO & Content", "Technical SEO, blog content, and product page optimization for compounding traffic.", "$120"],
   ];
   return (
