@@ -468,20 +468,10 @@ function About() {
           </ul>
 
           <div className="mt-10 grid grid-cols-2 gap-4">
-            {[
-              { target: 15, prefix: "$", suffix: "M+", decimals: 0, label: "Revenue Generated" },
-              { target: 200, prefix: "", suffix: "+", decimals: 0, label: "Stores Built" },
-              { target: 5.0, prefix: "", suffix: "", decimals: 1, label: "Star Rating" },
-              { target: 600, prefix: "", suffix: "+", decimals: 0, label: "Happy Clients" },
-            ].map((s) => {
-              const { ref, formatted } = useCountUp(s.target, 1800, s.decimals);
-              return (
-                <div key={s.label} className="rounded-2xl border border-border bg-card p-5">
-                  <p ref={ref} className="font-display text-4xl text-primary">{s.prefix}{formatted}{s.suffix}</p>
-                  <p className="mt-1 text-sm text-muted-foreground">{s.label}</p>
-                </div>
-              );
-            })}
+            <StatCard target={15} prefix="$" suffix="M+" label="Revenue Generated" />
+            <StatCard target={200} suffix="+" label="Stores Built" />
+            <StatCard target={5.0} decimals={1} label="Star Rating" />
+            <StatCard target={600} suffix="+" label="Happy Clients" />
           </div>
 
           <a
