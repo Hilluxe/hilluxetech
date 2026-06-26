@@ -314,20 +314,47 @@ function Hero() {
 }
 
 /* ──────────────────────────  MARQUEE / TRUST  ────────────────────── */
-function Marquee() {
-  const items = ["Meta", "Google", "Shopify", "Klaviyo", "Fiverr", "Upwork", "TikTok Ads", "Calendly"];
+const TOP_ROW = ["React", "Next.js", "Tailwind CSS", "Shopify", "Meta Ads", "Google Ads", "Klaviyo", "GA4", "Framer", "Webflow"];
+const BOTTOM_ROW = ["OpenAI", "Claude", "Gemini", "AI Automation", "Vibe Coding", "Website Development", "Sales Funnels", "Email Marketing", "Conversion Rate Optimization", "E-commerce Growth"];
+
+function MarqueeRow({ items, direction = "left" }: { items: string[]; direction?: "left" | "right" }) {
+  const loop = [...items, ...items];
   return (
-    <section className="border-y border-border bg-secondary/40 py-6">
+    <div className="relative overflow-hidden">
+      <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 bg-gradient-to-r from-background to-transparent sm:w-24" />
+      <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 bg-gradient-to-l from-background to-transparent sm:w-24" />
+      <div
+        className="flex w-max gap-4 py-3"
+        style={{ animation: `marquee-${direction} 45s linear infinite` }}
+      >
+        {loop.map((label, i) => (
+          <span
+            key={`${label}-${i}`}
+            className="group/badge relative inline-flex shrink-0 items-center rounded-full border border-white/10 bg-white/5 px-5 py-2.5 text-sm font-medium text-foreground/90 backdrop-blur-md transition-all duration-300 hover:-translate-y-0.5 hover:border-white/25 hover:bg-white/10"
+            style={{
+              boxShadow:
+                "inset 0 1px 0 0 rgba(255,255,255,0.06), 0 6px 24px -12px rgba(99,102,241,0.45), 0 6px 24px -12px rgba(168,85,247,0.35)",
+            }}
+          >
+            <span className="pointer-events-none absolute -inset-px rounded-full bg-gradient-to-r from-blue-500/0 via-blue-500/30 to-purple-500/0 opacity-0 blur-md transition-opacity duration-300 group-hover/badge:opacity-100" />
+            <span className="relative whitespace-nowrap">{label}</span>
+          </span>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function Marquee() {
+  return (
+    <section className="relative overflow-hidden border-y border-border bg-secondary/40 py-10">
       <div className="mx-auto max-w-7xl px-5">
-        <p className="mb-4 text-center text-[10px] tracking-[0.3em] text-muted-foreground">
+        <p className="mb-6 text-center text-[10px] tracking-[0.3em] text-muted-foreground">
           TRUSTED PARTNERS & PLATFORMS
         </p>
-        <div className="flex flex-wrap items-center justify-center gap-x-12 gap-y-4">
-          {items.map((i) => (
-            <span key={i} className="font-display text-2xl text-foreground/70">
-              {i}
-            </span>
-          ))}
+        <div className="space-y-3">
+          <MarqueeRow items={TOP_ROW} direction="left" />
+          <MarqueeRow items={BOTTOM_ROW} direction="right" />
         </div>
       </div>
     </section>
