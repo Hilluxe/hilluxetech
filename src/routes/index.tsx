@@ -457,6 +457,7 @@ function About() {
               "Certified Google Ads Partner",
               "Shopify Partner Expert",
               "5+ years of e-commerce experience",
+              "Specialized in Multi-Market & International Conversion Rate Optimization (CRO) across Europe and the US",
             ].map((b) => (
               <li key={b} className="flex items-center gap-3">
                 <span className="grid h-6 w-6 place-items-center rounded-full bg-primary/15 text-primary">
