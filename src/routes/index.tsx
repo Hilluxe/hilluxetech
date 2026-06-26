@@ -453,16 +453,19 @@ function About() {
 
           <div className="mt-10 grid grid-cols-2 gap-4">
             {[
-              ["$15M+", "Revenue Generated"],
-              ["200+", "Stores Built"],
-              ["5.0", "Star Rating"],
-              ["600+", "Happy Clients"],
-            ].map(([v, l]) => (
-              <div key={l} className="rounded-2xl border border-border bg-card p-5">
-                <p className="font-display text-4xl text-primary">{v}</p>
-                <p className="mt-1 text-sm text-muted-foreground">{l}</p>
-              </div>
-            ))}
+              { target: 15, prefix: "$", suffix: "M+", decimals: 0, label: "Revenue Generated" },
+              { target: 200, prefix: "", suffix: "+", decimals: 0, label: "Stores Built" },
+              { target: 5.0, prefix: "", suffix: "", decimals: 1, label: "Star Rating" },
+              { target: 600, prefix: "", suffix: "+", decimals: 0, label: "Happy Clients" },
+            ].map((s) => {
+              const { ref, formatted } = useCountUp(s.target, 1800, s.decimals);
+              return (
+                <div key={s.label} className="rounded-2xl border border-border bg-card p-5">
+                  <p ref={ref} className="font-display text-4xl text-primary">{s.prefix}{formatted}{s.suffix}</p>
+                  <p className="mt-1 text-sm text-muted-foreground">{s.label}</p>
+                </div>
+              );
+            })}
           </div>
 
           <a
