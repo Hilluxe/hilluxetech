@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import profileImg from "../assets/profile.jpg";
 
 const FAQ_ITEMS: Array<[string, string]> = [
@@ -33,6 +33,61 @@ export const Route = createFileRoute("/")({
   }),
 });
 
+
+function useCountUp(target: number, duration = 1800, decimals = 0) {
+  const [count, setCount] = useState(0);
+  const [started, setStarted] = useState(false);
+  const ref = useRef<HTMLParagraphElement>(null);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !started) setStarted(true);
+      },
+      { threshold: 0.25 }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [started]);
+
+  useEffect(() => {
+    if (!started) return;
+    let raf: number;
+    const startTime = performance.now();
+
+    const tick = (now: number) => {
+      const elapsed = now - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      setCount(target * eased);
+      if (progress < 1) raf = requestAnimationFrame(tick);
+    };
+
+    raf = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(raf);
+  }, [started, target, duration]);
+
+  const formatted = decimals > 0 ? count.toFixed(decimals) : Math.floor(count).toString();
+  return { ref, formatted };
+}
+
+function StatCard({ target, prefix, suffix, decimals, label }: {
+  target: number;
+  prefix?: string;
+  suffix?: string;
+  decimals?: number;
+  label: string;
+}) {
+  const { ref, formatted } = useCountUp(target, 1800, decimals);
+  return (
+    <div className="rounded-2xl border border-border bg-card p-5">
+      <p ref={ref} className="font-display text-4xl text-primary">{prefix}{formatted}{suffix}</p>
+      <p className="mt-1 text-sm text-muted-foreground">{label}</p>
+    </div>
+  );
+}
 
 const NAV = [
   { id: "about", label: "About" },
@@ -413,17 +468,10 @@ function About() {
           </ul>
 
           <div className="mt-10 grid grid-cols-2 gap-4">
-            {[
-              ["$15M+", "Revenue Generated"],
-              ["200+", "Stores Built"],
-              ["5.0", "Star Rating"],
-              ["600+", "Happy Clients"],
-            ].map(([v, l]) => (
-              <div key={l} className="rounded-2xl border border-border bg-card p-5">
-                <p className="font-display text-4xl text-primary">{v}</p>
-                <p className="mt-1 text-sm text-muted-foreground">{l}</p>
-              </div>
-            ))}
+            <StatCard target={15} prefix="$" suffix="M+" label="Revenue Generated" />
+            <StatCard target={200} suffix="+" label="Stores Built" />
+            <StatCard target={5.0} decimals={1} label="Star Rating" />
+            <StatCard target={600} suffix="+" label="Happy Clients" />
           </div>
 
           <a
