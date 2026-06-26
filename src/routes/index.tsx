@@ -73,6 +73,22 @@ function useCountUp(target: number, duration = 1800, decimals = 0) {
   return { ref, formatted };
 }
 
+function StatCard({ target, prefix, suffix, decimals, label }: {
+  target: number;
+  prefix?: string;
+  suffix?: string;
+  decimals?: number;
+  label: string;
+}) {
+  const { ref, formatted } = useCountUp(target, 1800, decimals);
+  return (
+    <div className="rounded-2xl border border-border bg-card p-5">
+      <p ref={ref} className="font-display text-4xl text-primary">{prefix}{formatted}{suffix}</p>
+      <p className="mt-1 text-sm text-muted-foreground">{label}</p>
+    </div>
+  );
+}
+
 const NAV = [
   { id: "about", label: "About" },
   { id: "process", label: "Process" },
