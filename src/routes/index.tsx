@@ -551,6 +551,7 @@ function Results() {
         ["2,400+", "Orders", "+380%"],
       ],
       note: "Turned a struggling boutique into a 6-figure brand through strategic Meta ads.",
+      link: "https://drive.google.com/file/d/1L5jaAvY269ffuzk1GEojZtc1GuFwkCx9/view?usp=sharing",
     },
     {
       tag: "4 Months",
@@ -561,6 +562,7 @@ function Results() {
         ["$145", "AOV", "+95%"],
       ],
       note: "Scaled from $5K to $80K/month using Google Shopping & Search campaigns.",
+      link: "https://drive.google.com/file/d/1roSnj30N83noC7ieEuU9MyfodvNiY1wP/view?usp=sharing",
     },
     {
       tag: "6 Months",
@@ -571,6 +573,7 @@ function Results() {
         ["15K+", "Subscribers", "+450%"],
       ],
       note: "Built an automated email system that drives 35% of total revenue via Klaviyo.",
+      link: null,
     },
     {
       tag: "2 Months",
@@ -581,8 +584,10 @@ function Results() {
         ["$280", "LTV", "+150%"],
       ],
       note: "Launched a new product line with conversion-focused funnels & retargeting.",
+      link: null,
     },
   ];
+
   return (
     <section id="results" className="mx-auto max-w-7xl px-5 py-24 md:py-32">
       <p className="mb-6 text-xs tracking-[0.25em] text-muted-foreground">/ 03 — RESULTS</p>
