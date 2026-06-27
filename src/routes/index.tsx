@@ -82,9 +82,12 @@ function StatCard({ target, prefix, suffix, decimals, label }: {
 }) {
   const { ref, formatted } = useCountUp(target, 1800, decimals);
   return (
-    <div className="rounded-2xl border border-border bg-card p-5">
-      <p ref={ref} className="font-display text-4xl text-primary">{prefix}{formatted}{suffix}</p>
-      <p className="mt-1 text-sm text-muted-foreground">{label}</p>
+    <div className="group relative flex flex-col justify-between rounded-2xl border border-border/60 bg-card p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/25 hover:shadow-xl hover:shadow-primary/[0.07]">
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+      <p ref={ref} className="font-display text-5xl leading-none tracking-tight text-foreground md:text-[3.25rem]">
+        {prefix}{formatted}{suffix}
+      </p>
+      <p className="mt-3 text-sm font-medium text-muted-foreground">{label}</p>
     </div>
   );
 }
@@ -549,68 +552,71 @@ function Marquee() {
 /* ──────────────────────────────  ABOUT  ───────────────────────────── */
 function About() {
   return (
-    <section id="about" className="mx-auto max-w-7xl px-5 py-24 md:py-32">
-      <p className="mb-6 text-xs tracking-[0.25em] text-muted-foreground">/ 01 — ABOUT</p>
-      <h2 className="max-w-4xl font-display text-4xl leading-tight md:text-6xl">
-        Strategy-led growth for ambitious{" "}
-        <span className="italic text-primary">e-commerce founders.</span>
-      </h2>
+    <section id="about" className="py-24 md:py-32">
+      <div className="mx-auto max-w-7xl px-5">
+        <p className="mb-6 text-xs tracking-[0.25em] text-muted-foreground">/ 01 — ABOUT</p>
+        <h2 className="max-w-4xl font-display text-4xl leading-tight md:text-6xl">
+          Strategy-led growth for ambitious{" "}
+          <span className="italic text-primary">e-commerce founders.</span>
+        </h2>
 
-      <div className="mt-16 grid gap-12 md:grid-cols-2 md:items-start">
-        <div className="relative">
-          <img
-            src={profileImg}
-            alt="Hilluxe Tech — Shopify Expert"
-            width={720}
-            height={900}
-            loading="lazy"
-            className="aspect-[4/5] w-full rounded-3xl object-cover"
-          />
-          <div className="absolute -bottom-6 -right-6 hidden max-w-xs rounded-2xl border border-border bg-card p-5 shadow-sm md:block">
-            <p className="font-display text-xl italic leading-snug">
-              "Profit is engineered, not wished for."
-            </p>
-            <p className="mt-2 text-xs tracking-[0.2em] text-muted-foreground">— MY APPROACH</p>
-          </div>
+        {/* Stats — credibility first */}
+        <div className="mt-14 grid grid-cols-2 gap-4 md:gap-6 lg:grid-cols-4">
+          <StatCard target={15} prefix="$" suffix="M+" label="Revenue Generated" />
+          <StatCard target={200} suffix="+" label="Stores Built" />
+          <StatCard target={5.0} decimals={1} label="Star Rating" />
+          <StatCard target={600} suffix="+" label="Happy Clients" />
         </div>
 
-        <div>
-          <p className="text-lg leading-relaxed text-muted-foreground">
-            With over five years scaling Shopify brands, I've helped 200+ store owners turn
-            struggling catalogs into 6 & 7-figure businesses. My process is engineered around
-            three things: <span className="text-foreground">conversion, retention, and sustainable scale.</span>
-          </p>
-
-          <ul className="mt-8 space-y-3 text-sm">
-            {[
-              "Top Rated Seller on Fiverr & Upwork",
-              "Certified Google Ads Partner",
-              "Shopify Partner Expert",
-              "5+ years of e-commerce experience",
-              "Specialized in Multi-Market & International Conversion Rate Optimization (CRO) across Europe and the US",
-            ].map((b) => (
-              <li key={b} className="flex items-center gap-3">
-                <span className="grid h-6 w-6 place-items-center rounded-full bg-primary/15 text-primary">
-                  ✓
-                </span>
-                {b}
-              </li>
-            ))}
-          </ul>
-
-          <div className="mt-10 grid grid-cols-2 gap-4">
-            <StatCard target={15} prefix="$" suffix="M+" label="Revenue Generated" />
-            <StatCard target={200} suffix="+" label="Stores Built" />
-            <StatCard target={5.0} decimals={1} label="Star Rating" />
-            <StatCard target={600} suffix="+" label="Happy Clients" />
+        <div className="mt-16 grid gap-12 md:grid-cols-2 md:items-start">
+          <div className="relative">
+            <img
+              src={profileImg}
+              alt="Hilluxe Tech — Shopify Expert"
+              width={720}
+              height={900}
+              loading="lazy"
+              className="aspect-[4/5] w-full rounded-3xl object-cover"
+            />
+            <div className="absolute -bottom-6 -right-6 hidden max-w-xs rounded-2xl border border-border bg-card p-5 shadow-sm md:block">
+              <p className="font-display text-xl italic leading-snug">
+                "Profit is engineered, not wished for."
+              </p>
+              <p className="mt-2 text-xs tracking-[0.2em] text-muted-foreground">— MY APPROACH</p>
+            </div>
           </div>
 
-          <a
-            href="#services"
-            className="mt-10 inline-flex items-center gap-2 text-sm font-medium underline decoration-primary underline-offset-4"
-          >
-            Explore my services →
-          </a>
+          <div>
+            <p className="text-lg leading-relaxed text-muted-foreground">
+              With over five years scaling Shopify brands, I've helped 200+ store owners turn
+              struggling catalogs into 6 & 7-figure businesses. My process is engineered around
+              three things: <span className="text-foreground">conversion, retention, and sustainable scale.</span>
+            </p>
+
+            <ul className="mt-8 space-y-3 text-sm">
+              {[
+                "Top Rated Seller on Fiverr & Upwork",
+                "Certified Google Ads Partner",
+                "Shopify Partner Expert",
+                "5+ years of e-commerce experience",
+                "Specialized in Multi-Market & International Conversion Rate Optimization (CRO) across Europe and the US",
+              ].map((b) => (
+                <li key={b} className="flex items-center gap-3">
+                  <span className="grid h-6 w-6 place-items-center rounded-full bg-primary/15 text-primary">
+                    ✓
+                  </span>
+                  {b}
+                </li>
+              ))}
+            </ul>
+
+            <a
+              href="#services"
+              className="mt-10 inline-flex items-center gap-2 text-sm font-medium underline decoration-primary underline-offset-4"
+            >
+              Explore my services →
+            </a>
+          </div>
         </div>
       </div>
     </section>
