@@ -218,6 +218,136 @@ function Home() {
       >
         <span aria-hidden>💬</span> Chat with me
       </a>
+
+      <LeadPopup />
+    </div>
+  );
+}
+
+/* ───────────────────────────  LEAD POPUP  ─────────────────────────── */
+function LeadPopup() {
+  const [open, setOpen] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    if (sessionStorage.getItem("hilluxe_lead_popup_shown")) return;
+    const t = window.setTimeout(() => {
+      sessionStorage.setItem("hilluxe_lead_popup_shown", "1");
+      setOpen(true);
+    }, 60000);
+    return () => window.clearTimeout(t);
+  }, []);
+
+  useEffect(() => {
+    if (!open) return;
+    const onKey = (e: KeyboardEvent) => e.key === "Escape" && setOpen(false);
+    window.addEventListener("keydown", onKey);
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      window.removeEventListener("keydown", onKey);
+      document.body.style.overflow = prev;
+    };
+  }, [open]);
+
+  if (!open) return null;
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setSubmitting(true);
+    const fd = new FormData(e.currentTarget);
+    const name = String(fd.get("name") || "").trim();
+    const email = String(fd.get("email") || "").trim();
+    const company = String(fd.get("company") || "").trim();
+    const msg =
+      `Hi Hilluxe Tech! I'd like to claim my Free Strategy Session.%0A%0A` +
+      `Name: ${encodeURIComponent(name)}%0A` +
+      `Email: ${encodeURIComponent(email)}%0A` +
+      `Business: ${encodeURIComponent(company || "—")}`;
+    window.open(`${WHATSAPP}?text=${msg}`, "_blank", "noopener,noreferrer");
+    setSubmitting(false);
+    setOpen(false);
+  };
+
+  return (
+    <div
+      className="fixed inset-0 z-[100] flex items-center justify-center p-4 animate-in fade-in duration-300"
+      onClick={() => setOpen(false)}
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="lead-popup-title"
+    >
+      <div className="absolute inset-0 bg-black/70 backdrop-blur-sm" />
+      <div
+        onClick={(e) => e.stopPropagation()}
+        className="relative w-full max-w-md overflow-hidden rounded-3xl border border-white/10 bg-[oklch(0.18_0.02_60)]/90 p-7 shadow-2xl backdrop-blur-xl animate-in zoom-in-95 duration-300"
+        style={{
+          boxShadow:
+            "0 30px 80px -20px rgba(0,0,0,0.6), 0 0 60px -10px rgba(99,102,241,0.35), 0 0 80px -20px rgba(168,85,247,0.25)",
+        }}
+      >
+        {/* glow accents */}
+        <div className="pointer-events-none absolute -top-20 -left-16 h-48 w-48 rounded-full bg-blue-500/30 blur-3xl" />
+        <div className="pointer-events-none absolute -bottom-20 -right-16 h-48 w-48 rounded-full bg-purple-500/30 blur-3xl" />
+
+        <button
+          type="button"
+          onClick={() => setOpen(false)}
+          aria-label="Close"
+          className="absolute right-4 top-4 z-10 flex h-8 w-8 items-center justify-center rounded-full border border-white/15 bg-white/5 text-white/80 transition hover:bg-white/10 hover:text-white"
+        >
+          ×
+        </button>
+
+        <div className="relative">
+          <h3
+            id="lead-popup-title"
+            className="font-display text-3xl leading-tight text-white"
+          >
+            🚀 Wait! Before You Leave
+          </h3>
+          <p className="mt-3 text-sm leading-relaxed text-white/75">
+            Get a <span className="text-white font-medium">FREE Website & AI Automation Strategy Session</span> and discover how we can help you grow your business with a high-converting website, AI automation, and digital solutions.
+          </p>
+
+          <form onSubmit={handleSubmit} className="mt-6 space-y-3">
+            <input
+              required
+              name="name"
+              type="text"
+              maxLength={100}
+              placeholder="Full Name"
+              className="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white placeholder:text-white/40 focus:border-white/30 focus:outline-none focus:ring-2 focus:ring-primary/40"
+            />
+            <input
+              required
+              name="email"
+              type="email"
+              maxLength={255}
+              placeholder="Email Address"
+              className="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white placeholder:text-white/40 focus:border-white/30 focus:outline-none focus:ring-2 focus:ring-primary/40"
+            />
+            <input
+              name="company"
+              type="text"
+              maxLength={120}
+              placeholder="Business / Company Name (optional)"
+              className="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white placeholder:text-white/40 focus:border-white/30 focus:outline-none focus:ring-2 focus:ring-primary/40"
+            />
+            <button
+              type="submit"
+              disabled={submitting}
+              className="w-full rounded-xl bg-gradient-to-r from-blue-500 to-purple-500 px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-purple-500/30 transition hover:-translate-y-0.5 hover:shadow-purple-500/50 disabled:opacity-60"
+            >
+              Claim My Free Strategy Session
+            </button>
+            <p className="text-center text-xs text-white/50">
+              No spam. Your information is kept private.
+            </p>
+          </form>
+        </div>
+      </div>
     </div>
   );
 }
@@ -551,6 +681,7 @@ function Results() {
         ["2,400+", "Orders", "+380%"],
       ],
       note: "Turned a struggling boutique into a 6-figure brand through strategic Meta ads.",
+      link: "https://drive.google.com/file/d/1L5jaAvY269ffuzk1GEojZtc1GuFwkCx9/view?usp=sharing",
     },
     {
       tag: "4 Months",
@@ -561,6 +692,7 @@ function Results() {
         ["$145", "AOV", "+95%"],
       ],
       note: "Scaled from $5K to $80K/month using Google Shopping & Search campaigns.",
+      link: "https://drive.google.com/file/d/1roSnj30N83noC7ieEuU9MyfodvNiY1wP/view?usp=sharing",
     },
     {
       tag: "6 Months",
@@ -571,6 +703,7 @@ function Results() {
         ["15K+", "Subscribers", "+450%"],
       ],
       note: "Built an automated email system that drives 35% of total revenue via Klaviyo.",
+      link: null,
     },
     {
       tag: "2 Months",
@@ -581,8 +714,10 @@ function Results() {
         ["$280", "LTV", "+150%"],
       ],
       note: "Launched a new product line with conversion-focused funnels & retargeting.",
+      link: null,
     },
   ];
+
   return (
     <section id="results" className="mx-auto max-w-7xl px-5 py-24 md:py-32">
       <p className="mb-6 text-xs tracking-[0.25em] text-muted-foreground">/ 03 — RESULTS</p>
@@ -616,9 +751,20 @@ function Results() {
               ))}
             </div>
             <p className="mt-6 text-sm leading-relaxed text-muted-foreground">{c.note}</p>
-            <button className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-foreground underline decoration-primary underline-offset-4">
-              View detailed breakdown →
-            </button>
+            {c.link ? (
+              <a
+                href={c.link}
+                target="_blank"
+                rel="noreferrer"
+                className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-foreground underline decoration-primary underline-offset-4"
+              >
+                View detailed breakdown →
+              </a>
+            ) : (
+              <button className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-muted-foreground underline decoration-primary/40 underline-offset-4">
+                Coming soon →
+              </button>
+            )}
           </article>
         ))}
       </div>
