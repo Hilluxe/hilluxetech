@@ -82,9 +82,12 @@ function StatCard({ target, prefix, suffix, decimals, label }: {
 }) {
   const { ref, formatted } = useCountUp(target, 1800, decimals);
   return (
-    <div className="rounded-2xl border border-border bg-card p-5">
-      <p ref={ref} className="font-display text-4xl text-primary">{prefix}{formatted}{suffix}</p>
-      <p className="mt-1 text-sm text-muted-foreground">{label}</p>
+    <div className="group relative flex flex-col justify-between rounded-2xl border border-border/60 bg-card p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/25 hover:shadow-xl hover:shadow-primary/[0.07]">
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+      <p ref={ref} className="font-display text-5xl leading-none tracking-tight text-foreground md:text-[3.25rem]">
+        {prefix}{formatted}{suffix}
+      </p>
+      <p className="mt-3 text-sm font-medium text-muted-foreground">{label}</p>
     </div>
   );
 }
