@@ -621,9 +621,20 @@ function Results() {
               ))}
             </div>
             <p className="mt-6 text-sm leading-relaxed text-muted-foreground">{c.note}</p>
-            <button className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-foreground underline decoration-primary underline-offset-4">
-              View detailed breakdown →
-            </button>
+            {c.link ? (
+              <a
+                href={c.link}
+                target="_blank"
+                rel="noreferrer"
+                className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-foreground underline decoration-primary underline-offset-4"
+              >
+                View detailed breakdown →
+              </a>
+            ) : (
+              <button className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-muted-foreground underline decoration-primary/40 underline-offset-4">
+                Coming soon →
+              </button>
+            )}
           </article>
         ))}
       </div>
