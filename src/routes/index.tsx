@@ -92,6 +92,61 @@ function StatCard({ target, prefix, suffix, decimals, label }: {
   );
 }
 
+function LazyVideo({ videoId, title }: { videoId: string; title: string }) {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [inView, setInView] = useState(false);
+  const [loaded, setLoaded] = useState(false);
+  const src = `https://drive.google.com/uc?export=download&id=${videoId}`;
+
+  useEffect(() => {
+    const el = containerRef.current;
+    if (!el) return;
+    const io = new IntersectionObserver(
+      ([entry]) => {
+        const v = videoRef.current;
+        if (entry.isIntersecting) {
+          setInView(true);
+          if (v) v.play().catch(() => {});
+        } else if (v) {
+          v.pause();
+        }
+      },
+      { threshold: 0.35 }
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
+
+  return (
+    <div
+      ref={containerRef}
+      className="relative aspect-video w-full overflow-hidden rounded-2xl border border-border bg-black"
+    >
+      {!loaded && (
+        <div className="absolute inset-0 z-10 flex items-center justify-center bg-black/60">
+          <div className="h-8 w-8 animate-spin rounded-full border-2 border-primary/30 border-t-primary" />
+        </div>
+      )}
+      {inView && (
+        <video
+          ref={videoRef}
+          src={src}
+          className="h-full w-full object-cover"
+          muted
+          loop
+          playsInline
+          autoPlay
+          controls
+          preload="metadata"
+          aria-label={title}
+          onLoadedData={() => setLoaded(true)}
+        />
+      )}
+    </div>
+  );
+}
+
 const NAV = [
   { id: "about", label: "About" },
   { id: "process", label: "Process" },
