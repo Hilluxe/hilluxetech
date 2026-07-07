@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
 import profileImg from "../assets/profile.jpg";
+import { AIChat } from "@/components/AIChat";
 
 const FAQ_ITEMS: Array<[string, string]> = [
   ["How quickly can you start working on my store?", "Most engagements start within 3–5 business days after our discovery call and onboarding."],
@@ -153,6 +154,7 @@ const NAV = [
   { id: "results", label: "Results" },
   { id: "services", label: "Services" },
   { id: "reviews", label: "Reviews" },
+  { id: "ai-assistant", label: "AI Assistant" },
   { id: "faq", label: "FAQ" },
 ];
 
@@ -263,6 +265,7 @@ function Home() {
         
         <Reviews />
         <Audit />
+        <AIChat />
         <FAQ />
         <Footer />
       </main>
