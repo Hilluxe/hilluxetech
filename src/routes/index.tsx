@@ -265,6 +265,7 @@ function Home() {
         
         <Reviews />
         <Audit />
+        <AIChat />
         <FAQ />
         <Footer />
       </main>
