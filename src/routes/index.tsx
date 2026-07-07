@@ -154,6 +154,7 @@ const NAV = [
   { id: "results", label: "Results" },
   { id: "services", label: "Services" },
   { id: "reviews", label: "Reviews" },
+  { id: "ai-assistant", label: "AI Assistant" },
   { id: "faq", label: "FAQ" },
 ];
 
