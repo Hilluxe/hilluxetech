@@ -93,60 +93,6 @@ function StatCard({ target, prefix, suffix, decimals, label }: {
   );
 }
 
-function LazyVideo({ videoId, title }: { videoId: string; title: string }) {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const videoRef = useRef<HTMLVideoElement>(null);
-  const [inView, setInView] = useState(false);
-  const [loaded, setLoaded] = useState(false);
-  const src = `https://drive.google.com/uc?export=download&id=${videoId}`;
-
-  useEffect(() => {
-    const el = containerRef.current;
-    if (!el) return;
-    const io = new IntersectionObserver(
-      ([entry]) => {
-        const v = videoRef.current;
-        if (entry.isIntersecting) {
-          setInView(true);
-          if (v) v.play().catch(() => {});
-        } else if (v) {
-          v.pause();
-        }
-      },
-      { threshold: 0.35 }
-    );
-    io.observe(el);
-    return () => io.disconnect();
-  }, []);
-
-  return (
-    <div
-      ref={containerRef}
-      className="relative aspect-video w-full overflow-hidden rounded-2xl border border-border bg-black"
-    >
-      {!loaded && (
-        <div className="absolute inset-0 z-10 flex items-center justify-center bg-black/60">
-          <div className="h-8 w-8 animate-spin rounded-full border-2 border-primary/30 border-t-primary" />
-        </div>
-      )}
-      {inView && (
-        <video
-          ref={videoRef}
-          src={src}
-          className="h-full w-full object-cover"
-          muted
-          loop
-          playsInline
-          autoPlay
-          controls
-          preload="metadata"
-          aria-label={title}
-          onLoadedData={() => setLoaded(true)}
-        />
-      )}
-    </div>
-  );
-}
 
 const NAV = [
   { id: "about", label: "About" },
@@ -740,7 +686,6 @@ function Results() {
     title: string;
     stats: string[][];
     note: string;
-    videoId?: string;
   }> = [
     {
       tag: "3 Months",
@@ -751,7 +696,6 @@ function Results() {
         ["2,400+", "Orders", "+380%"],
       ],
       note: "Turned a struggling boutique into a 6-figure brand through strategic Meta ads.",
-      videoId: "1L5jaAvY269ffuzk1GEojZtc1GuFwkCx9",
     },
     {
       tag: "4 Months",
@@ -762,7 +706,6 @@ function Results() {
         ["$145", "AOV", "+95%"],
       ],
       note: "Scaled from $5K to $80K/month using Google Shopping & Search campaigns.",
-      videoId: "1roSnj30N83noC7ieEuU9MyfodvNiY1wP",
     },
     {
       tag: "6 Months",
@@ -819,15 +762,9 @@ function Results() {
               ))}
             </div>
             <p className="mt-6 text-sm leading-relaxed text-muted-foreground">{c.note}</p>
-            {c.videoId ? (
-              <div className="mt-6">
-                <LazyVideo videoId={c.videoId} title={`${c.title} case study video`} />
-              </div>
-            ) : (
-              <button className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-muted-foreground underline decoration-primary/40 underline-offset-4">
-                Coming soon →
-              </button>
-            )}
+            <button className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-muted-foreground underline decoration-primary/40 underline-offset-4">
+              Coming soon →
+            </button>
           </article>
         ))}
       </div>
