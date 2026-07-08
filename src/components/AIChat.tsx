@@ -304,8 +304,41 @@ function MessageBubble({
           {isUser ? (
             content
           ) : (
-            <div className="prose prose-sm max-w-none prose-p:my-2 prose-pre:my-2 prose-pre:rounded-lg prose-pre:bg-background/60 prose-pre:text-foreground prose-code:rounded prose-code:bg-background/60 prose-code:px-1 prose-code:py-0.5 prose-code:text-[0.85em] prose-headings:font-display prose-a:text-primary">
-              <ReactMarkdown remarkPlugins={[remarkGfm]}>{content}</ReactMarkdown>
+            <div className="hilluxe-markdown">
+              <ReactMarkdown
+                remarkPlugins={[remarkGfm]}
+                components={{
+                  a: (props) => (
+                    <a {...props} target="_blank" rel="noreferrer" className="text-primary underline underline-offset-2" />
+                  ),
+                  code: ({ className, children, ...props }) => {
+                    const isBlock = /language-/.test(className ?? "");
+                    if (isBlock) {
+                      return (
+                        <pre className="my-2 overflow-x-auto rounded-lg bg-background/70 p-3 text-xs">
+                          <code className={className} {...props}>
+                            {children}
+                          </code>
+                        </pre>
+                      );
+                    }
+                    return (
+                      <code className="rounded bg-background/70 px-1 py-0.5 text-[0.85em]" {...props}>
+                        {children}
+                      </code>
+                    );
+                  },
+                  ul: (props) => <ul className="my-2 list-disc space-y-1 pl-5" {...props} />,
+                  ol: (props) => <ol className="my-2 list-decimal space-y-1 pl-5" {...props} />,
+                  p: (props) => <p className="my-2 first:mt-0 last:mb-0" {...props} />,
+                  h1: (props) => <h3 className="mt-3 mb-1 font-display text-lg" {...props} />,
+                  h2: (props) => <h4 className="mt-3 mb-1 font-display text-base" {...props} />,
+                  h3: (props) => <h5 className="mt-3 mb-1 font-display text-base" {...props} />,
+                  strong: (props) => <strong className="font-semibold text-foreground" {...props} />,
+                }}
+              >
+                {content}
+              </ReactMarkdown>
               {streaming && (
                 <span className="ml-0.5 inline-block h-3 w-1.5 translate-y-0.5 animate-pulse bg-foreground/60 align-middle" />
               )}
