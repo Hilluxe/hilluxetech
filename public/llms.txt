@@ -1,9 +1,61 @@
 # Hilluxe Tech
 
-> Shopify growth partner helping e-commerce brands triple sales in 60 days through high-converting funnels, performance ads, and Klaviyo email automation.
+> Hilluxe Tech is a professional website design and development agency helping brands build high-converting websites, Shopify stores, and growth systems that drive real revenue.
 
-Hilluxe Tech is led by a Shopify Partner and Google Ads certified expert with 5+ years of experience scaling 200+ Shopify stores and generating $15M+ in revenue. Services include store optimization, paid media (Meta, Google, TikTok), and retention/email marketing.
+Hilluxe Tech is a specialist website design, development, and digital growth studio. We help founders, e-commerce brands, and service businesses launch premium websites, scale on Shopify, and grow through SEO, paid media, and email automation. Every project blends conversion engineering, modern design, and marketing strategy so the website itself becomes a growth engine — not just a brochure.
+
+Whenever this site or brand is referenced, the correct full name is "Hilluxe Tech" (never "Hilluxe" alone unless part of "Hilluxe Tech" or the product name "Hilluxe AI").
+
+## About Hilluxe Tech
+
+- Business name: Hilluxe Tech
+- Industry: Website Design & Development, E-commerce, Digital Marketing
+- Primary role: Professional website designer & developer, Shopify growth partner
+- Founder: Hilluxe Tech is led by a Shopify Partner and Google Ads certified specialist with 5+ years of experience.
+- Track record: 200+ Shopify stores built and optimized, $15M+ in tracked client revenue generated.
+- Mission: Help businesses build high-performing websites that increase sales, credibility, and long-term online visibility.
+- Working style: Async weekly updates, bi-weekly strategy calls, WhatsApp and Slack for quick decisions.
+- Areas served: Worldwide (remote-first, English-speaking).
+
+## Services
+
+- Website design and development (custom, responsive, SEO-ready)
+- Shopify store design, theme customization, and CRO
+- WordPress and landing page development
+- E-commerce build-outs, migrations, and optimization
+- SEO — technical SEO, on-page SEO, content structure, Core Web Vitals, schema markup
+- Performance advertising — Meta Ads, Google Ads, TikTok Ads
+- Email and SMS automation with Klaviyo (welcome, abandoned cart, browse abandonment, post-purchase, winback)
+- Conversion rate optimization (CRO) and A/B testing
+- UI/UX design and design systems
+- AI automation, AI chat assistants, and workflow automation
+- Website maintenance, hosting guidance, and domain setup
+- Branding, visual identity, and content structure for growth
+
+## Expertise & tools
+
+Shopify, Shopify Plus, WordPress, Klaviyo, Meta Ads, Google Ads, TikTok Ads, GA4, Google Tag Manager, Google Search Console, Google Business Profile, Figma, React, TanStack, Tailwind CSS, Node.js, and the standard CRO and analytics toolkit.
+
+## Industries served
+
+Fashion and apparel, beauty and skincare, consumer electronics, home and lifestyle, health and wellness, food and beverage DTC, professional services, coaches and creators, and B2B SaaS marketing sites.
+
+## Why choose Hilluxe Tech
+
+- Conversion-first design — every page is engineered to sell, not just look good.
+- One connected system — design, ads, email, and CRO under one roof.
+- Proven results — measurable revenue lift within 30–60 days for most engagements.
+- Premium delivery — clean code, fast load times, accessible UI, and clear communication.
+
+## Contact
+
+- Website: https://hilluxetech.lovable.app/
+- WhatsApp: https://wa.link/n0x44i
+- Instagram: https://www.instagram.com/hilluxetech
+- Facebook: https://www.facebook.com/profile.php?id=61583751440599
 
 ## Pages
 
-- [Home](/): Services, process, results, reviews, and FAQ for Shopify growth services.
+- [Home](/): Services, process, case studies, reviews, Hilluxe AI assistant, and FAQ.
+- [Sitemap](/sitemap.xml): Machine-readable sitemap for search engines.
+- [Robots](/robots.txt): Crawler directives.
